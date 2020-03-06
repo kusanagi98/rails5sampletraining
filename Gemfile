@@ -25,7 +25,8 @@ gem 'uglifier', '3.2.0'
 gem 'will_paginate', '3.1.6'
 
 group :development, :test do
-  gem 'byebug',  '9.0.6', platform: :mri
+  gem 'byebug', '9.0.6', platform: :mri
+  gem 'dotenv-rails'
   gem 'sqlite3', '1.3.13'
 end
 
