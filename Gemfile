@@ -6,11 +6,13 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.6.5'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'bcrypt', '3.1.12'
+# gem 'bcrypt', '3.1.12'
+gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap'
 gem 'bootstrap-sass',          '3.3.7'
-gem 'bootstrap-will_paginate', '1.0.0'
+# gem 'bootstrap-will_paginate', '1.0.0'
 gem 'carrierwave', '1.2.2'
+gem 'cloudinary'
 gem 'coffee-rails', '4.2.2'
 gem 'faker', '1.7.3'
 gem 'jbuilder', '2.7.0'
@@ -22,12 +24,12 @@ gem 'rails', '~> 5.2.4'
 gem 'sass-rails', '5.0.6'
 gem 'turbolinks', '5.0.1'
 gem 'uglifier', '3.2.0'
-gem 'will_paginate', '3.1.6'
+# gem 'will_paginate', '3.1.6'
 
 group :development, :test do
   gem 'byebug', '9.0.6', platform: :mri
   gem 'dotenv-rails'
-  gem 'sqlite3', '1.3.13'
+  gem 'sqlite3'     # , '1.3.13'
 end
 
 group :development do
@@ -46,9 +48,11 @@ group :test do
 end
 
 group :production do
-  gem 'fog', '1.42'
-  gem 'pg',  '0.20.0'
+  # gem 'fog', '1.42'
+  gem 'pg' # , '0.20.0'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+
+gem 'wdm', '>= 0.1.0' if Gem.win_platform?
