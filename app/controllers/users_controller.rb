@@ -25,7 +25,7 @@ class UsersController < ApplicationController
     if @user.save
       # UserMailer.account_activation(@user).deliver_now
       @user.send_activation_email
-      flash[:info] = "Please check your email to activate your account."
+      flash[:info] = 'Please check your email to activate your account.'
       redirect_to root_url
     else
       render 'new'
@@ -50,6 +50,20 @@ class UsersController < ApplicationController
     User.find(params[:id]).destroy
     flash[:success] = 'User deleted'
     redirect_to users_url
+  end
+
+  def following
+    @title = 'Following'
+    @user  = User.find(params[:id])
+    @users = @user.following.page(params[:page])
+    render 'show_follow'
+  end
+
+  def followers
+    @title = 'Followers'
+    @user  = User.find(params[:id])
+    @users = @user.followers.page(params[:page])
+    render 'show_follow'
   end
 
   private
